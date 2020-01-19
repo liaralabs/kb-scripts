@@ -13,7 +13,7 @@ tmpdir="/tmp/d2r.$$"
 ##############################################################
 # Some setup. Should not need to adjust these variables.
 ##############################################################
-#dc="deluge-console"
+dc="deluge-console"
 dcv=$(deluge-console -v | grep deluge | awk '{printf $2}' | sed 's/.dev0//g')
 dcp=$(grep daemon_port ${HOME}/.config/deluge/core.conf | awk '{printf $2}' | sed 's/,//g')
 deluge_state_dir=${HOME}/.config/deluge/state

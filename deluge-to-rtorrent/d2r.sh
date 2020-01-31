@@ -32,6 +32,7 @@ case $dcv in
     argsinfo="-v"
     argsrm="-c"
   ;;
+esac
 
 function on_exit() {
     rm -rf "${tmpdir}"

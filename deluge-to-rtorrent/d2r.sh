@@ -83,6 +83,7 @@ $rtfr -b $torrent_download_dir -d ${tmpdir}/${torrentid}_fast.torrent ${deluge_s
 if [[ $? -ne 0 ]]; then
   echo "Something went wrong when converting the torrent file with $(basename ${rtfr})"
   echo "exiting..."
+  rm -rf $tmpdir
   exit 10
 fi
 

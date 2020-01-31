@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ ! -f ${HOME}/.rtorrent.rc ]]; then
+  echo "${HOME}/.rtorrent.rc not found! You must have rTorrent installed for your user."
+  exit 1
+fi
+
 if [[ -z "${SKIP_SLEEP+x}" ]]; then
   sleep 900
 fi
@@ -22,12 +27,12 @@ rtxmlrpc=${HOME}/.local/bin/rtxmlrpc
 ##############################################################
 
 case $dcv in
-  1.3.15)
+  1.3.*)
     dc="deluge-console connect 127.0.0.1:$dcp;"
     argsinfo=
     argsrm=
   ;;
-  2.0.3)
+  2.0.*)
     dc="deluge-console -p $dcp "
     argsinfo="-v"
     argsrm="-c"
@@ -60,7 +65,7 @@ function set_tracker {
 tracker_line=$($dc "info $torrentid ${argsinfo}" | grep "^Tracker:" | awk -F: '{print $2}' | tr -d " ")
 set_tracker $tracker_line
 ratio=$($dc "info $torrentid ${argsinfo}" | grep Ratio: | awk -F "Ratio: " '{print $2}')
-if [[ $dcv == "1.3.15" ]]; then
+if [[ $dcv == "1.3."* ]]; then
   torrent_download_dir=$3
 else
   torrent_download_dir=$($dc "info $torrentid -v" | grep "^Download Folder:" | awk -F: '{print $2}' | tr -d " ")

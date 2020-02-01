@@ -13,7 +13,7 @@ torrentid=$1
 torrentname=$2
 torrentpath=$3
 
-tmpdir="/tmp/d2r.$$"
+tmpdir="${HOME}/tmp/d2r.$$"
 
 ##############################################################
 # Some setup. Should not need to adjust these variables.

@@ -74,7 +74,7 @@ fi
 #echo $ratio
 #echo $ratio_rounded_down
 
-mkdir $tmpdir
+mkdir -p $tmpdir
 
 cp ${deluge_state_dir}/${torrentid}.torrent ${tmpdir}
 

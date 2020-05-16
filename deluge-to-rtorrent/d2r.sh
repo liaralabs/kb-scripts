@@ -23,7 +23,7 @@ dcv=$(deluge-console -v | grep deluge | awk '{printf $2}' | sed 's/.dev0//g')
 dcp=$(grep daemon_port ${HOME}/.config/deluge/core.conf | awk '{printf $2}' | sed 's/,//g')
 deluge_state_dir=${HOME}/.config/deluge/state
 rtfr=${HOME}/bin/rfr.pl
-rtxmlrpc=${HOME}/.local/bin/rtxmlrpc
+rtxmlrpc=${HOME}/bin/rtxmlrpc
 ##############################################################
 
 case $dcv in
